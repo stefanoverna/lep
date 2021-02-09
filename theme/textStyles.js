@@ -61,6 +61,12 @@ const textStyles = {
     lineHeight: "short",
     letterSpacing: "-0.005em",
   },
+  article: {
+    fontFamily: "text",
+    fontSize: { base: "14px", lg: "16px", xl: "18px" },
+    fontWeight: "400",
+    letterSpacing: "-0.005em",
+  },
   textMd: {
     fontSize: { base: "14px", lg: "16px", xl: "18px" },
     fontWeight: "300",

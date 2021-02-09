@@ -61,6 +61,32 @@ export default function App({ Component, pageProps }) {
             src: url("/fonts/SuisseIntl-BoldItalic.woff2") format("woff2"),
               url("/fonts/SuisseIntl-BoldItalic.woff") format("woff");
           }
+          @font-face {
+            font-family: "Cambon";
+            font-display: swap;
+            font-weight: 400;
+            src: url("/fonts/Cambon-Regular.otf") format("woff");
+          }
+          @font-face {
+            font-family: "Cambon";
+            font-display: swap;
+            font-weight: 400;
+            font-style: italic;
+            src: url("/fonts/Cambon-Italic.otf") format("woff");
+          }
+          @font-face {
+            font-family: "Cambon";
+            font-display: swap;
+            font-weight: 700;
+            src: url("/fonts/Cambon-Bold.otf") format("woff");
+          }
+          @font-face {
+            font-family: "Cambon";
+            font-display: swap;
+            font-weight: 700;
+            font-style: italic;
+            src: url("/fonts/Cambon-BoldItalic.otf") format("woff");
+          }
         `}
       />
       <FacebookPixel>
