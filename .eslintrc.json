@@ -1,0 +1,97 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "react-hooks", "prettier", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    // "prettier/react",
+    "prettier/@typescript-eslint",
+    // OTHER…
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "commonjs": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./"]],
+        "extensions": [".js", ".ts", ".tsx"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    },
+    "@typescript-eslint/parser": [".ts", ".tsx"]
+  },
+  "rules": {
+    // NextJs specific fix: allow jsx syntax in js files
+    // should add ".ts" if typescript project
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx", ".tsx"]
+      }
+    ],
+    // NextJs specific fix: suppress for missing 'import React' in files
+    "react/react-in-jsx-scope": 0,
+    "react/display-name": 0,
+    "react/prop-types": [2, { "ignore": ["children", "dispatch", "router"] }],
+    "react/destructuring-assignment": 0,
+    "react/jsx-props-no-spreading": 0,
+    "no-use-before-define": 0,
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      },
+      {
+        "usePrettierrc": true
+      }
+    ],
+    // this pops up whenever I don't use React FCs:
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    // keep this on while we transition to tsx
+    "@typescript-eslint/ban-ts-comment": 1,
+    // …from next.js tsx examples
+    // "react/react-in-jsx-scope": 0,
+    // "react/display-name": 0,
+    // "react/prop-types": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    // "@typescript-eslint/indent": 0,
+    "@typescript-eslint/member-delimiter-style": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/no-unused-vars": [
+      1,
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-console": [
+      2,
+      {
+        "allow": ["warn", "error"]
+      }
+    ]
+  }
+}

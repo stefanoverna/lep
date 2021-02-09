@@ -1,0 +1,14 @@
+
+# Node
+node_modules
+
+# Next.js
+dist
+out
+.next
+
+# Tests
+coverage
+
+# Other
+backstop_data

@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Shop All",
+    "link": "/shop"
+  },
+  {
+    "label": "Relief Medications",
+    "link": "/shop/relief-medications"
+  },
+  {
+    "label": "Daily Support",
+    "link": "/shop/daily-support"
+  },
+  {
+    "label": "Immunotherapy",
+    "link": "/shop/immunotherapy"
+  },
+  {
+    "label": "Diagnostics",
+    "link": "/shop/diagnostics"
+  }
+]
