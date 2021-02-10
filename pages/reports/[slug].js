@@ -6,7 +6,6 @@ import ErrorPage from "next/error";
 import Head from "next/head";
 // import { GetStaticProps, NextPage } from "next";
 import { renderMetaTags } from "react-datocms";
-import { getAllReportsBySlug, getPostAndMorePosts } from "@/lib/api";
 import {
   Container,
   SimpleGrid,
@@ -20,6 +19,8 @@ import ReactMarkdown from "react-markdown";
 import LayoutBase from "@/components/LayoutBase";
 import GridArticle from "@/components/GridArticle";
 // import MediaImage from "@/components/MediaImage";
+// import { getAllReportsBySlug, getPostAndMorePosts } from "@/lib/api";
+import { getReportBySlug, getAllReportsWithSlug } from "@/lib/pages/Reports";
 
 export default function Post({ post, preview }) {
   const router = useRouter();
@@ -51,7 +52,7 @@ export default function Post({ post, preview }) {
         </GridArticle>
       )}
 
-      {post?.content?.map((item) => (
+      {post.content?.map((item) => (
         <GridArticle
           key={item.id}
           aside={<Text textStyle="article">{item.footnote}</Text>}
@@ -71,8 +72,10 @@ export default function Post({ post, preview }) {
   );
 }
 
+// https://nextjs.org/docs/basic-features/data-fetching#typescript-use-getstaticprops
+// export const getStaticProps: GetStaticProps = async (context) => {
 export async function getStaticProps({ params, preview = false }) {
-  const data = await getPostAndMorePosts(params.slug, preview);
+  const data = await getReportBySlug(params.slug, preview);
 
   return {
     props: {
@@ -80,13 +83,16 @@ export async function getStaticProps({ params, preview = false }) {
       post: {
         ...data?.report,
       },
-      morePosts: data?.morePosts ?? [],
+      // morePosts: data?.morePosts ?? [],
     },
   };
 }
 
+// When you use getStaticProps on a page with dynamic route parameters, you must use getStaticPaths.
+// https://nextjs.org/docs/basic-features/data-fetching#typescript-use-getstaticpaths
+// export const getStaticPaths: GetStaticPaths = async () => {
 export async function getStaticPaths() {
-  const allPosts = await getAllReportsBySlug();
+  const allPosts = await getAllReportsWithSlug();
   return {
     paths: allPosts?.map((post) => `/reports/${post.slug}`) || [],
     fallback: true,

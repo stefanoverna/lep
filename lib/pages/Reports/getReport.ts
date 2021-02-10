@@ -1,14 +1,11 @@
-/* eslint-disable import/prefer-default-export */
 import { gql } from "graphql-request";
 import { client, seoMetaTagsFieldsFragment } from "../../apiDato";
 
-export async function getReportBySlug(slug): Promise<unknown> {
+export async function getReportBySlug(slug, preview): Promise<unknown> {
   const data = await client.request(
     gql`
       query ReportBySlug($slug: String) {
-        report(filter: {slug: {eq: $slug}}) {
-          slug
-        }
+        report(filter: { slug: { eq: $slug } }) {
           seo: _seoMetaTags {
             ...seoMetaTagsFields
           }
@@ -24,26 +21,29 @@ export async function getReportBySlug(slug): Promise<unknown> {
               footnoteImage {
                 responsiveImage {
                   src
+                  alt
+                  base64
                 }
               }
               insights {
-                slug
-                title
-                lede
                 id
+                title
+                slug
+                lede
                 reports {
+                  id
                   title
                   slug
                 }
                 sources {
+                  id
                   title
                   slug
-                  id
                 }
                 tags {
-                  slug
-                  name
                   id
+                  name
+                  slug
                 }
               }
             }
@@ -52,16 +52,28 @@ export async function getReportBySlug(slug): Promise<unknown> {
               title
               level
             }
+            ... on ImageRecord {
+              id
+              credit
+              image {
+                responsiveImage {
+                  src
+                  alt
+                  base64
+                }
+              }
+            }
           }
         }
       }
       ${seoMetaTagsFieldsFragment}
     `,
     {
+      preview,
       variables: {
         slug,
       },
     }
   );
-  return data?.report;
+  return data;
 }
