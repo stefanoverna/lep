@@ -13069,10 +13069,10 @@ tiny-invariant@^1.0.6:
   resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
   integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
 
-tiny-json-http@7.2.2:
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/tiny-json-http/-/tiny-json-http-7.2.2.tgz#40c1014780b10852bfbfc86e1ce82dfb35548f34"
-  integrity sha512-bCS8A603p5HHH7njuXwAEIJXj+/utAlnUJ2buAHry4FcbWLUCyyoG8UaJQaRJBsls9zIM4D8dxwzonh+oIEIXg==
+tiny-json-http@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/tiny-json-http/-/tiny-json-http-7.3.0.tgz#26094cba45141b9e06c7cb0d850f5b0779062459"
+  integrity sha512-dZrf9ZGZQhe8QhhPN3o4uDCQuBc3Gaq4CtbU/67hQDWXuvjLI1mayr8AOFSiUGa3F818SpIgUnC3mM673VRHGQ==
 
 tiny-warning@^1.0.2:
   version "1.0.3"

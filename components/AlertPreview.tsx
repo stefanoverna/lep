@@ -3,7 +3,7 @@ import { Box, Container, Text } from "@chakra-ui/react";
 
 export default function Alert({ preview }: Props) {
   return (
-    <Box color={preview ? "form.good" : "azure.500"}>
+    <Box color={preview ? "form.good" : "black"}>
       <Container>
         <Text py={2}>
           {preview ? (

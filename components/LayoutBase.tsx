@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Box, Text } from "@chakra-ui/react";
-// import AlertPreview from "@/components/AlertPreview";
+import AlertPreview from "@/components/AlertPreview";
 import MessageBar from "@/components/MessageBar";
 import Headroom from "react-headroom";
 
@@ -23,7 +23,7 @@ const Layout = ({ preview, children }: Props) => {
         </Headroom>
       </Box>
 
-      {/* <AlertPreview preview={preview} /> */}
+      <AlertPreview preview={preview} />
 
       <Box as="main" role="main" pos="relative">
         {children}
