@@ -9,8 +9,8 @@ import { renderMetaTags } from "react-datocms";
 import { VStack, Container, Text } from "@chakra-ui/react";
 import LayoutBase from "@/components/LayoutBase";
 import GridArticle from "@/components/GridArticle";
-import { PostBody } from "@/components/PostBody";
-// import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
+// import { PostBody } from "@/components/PostBody";
 // import MediaImage from "@/components/MediaImage";
 // import { getAllReportsBySlug, getPostAndMorePosts } from "@/lib/api";
 // import { getReportBySlug, getAllReportsWithSlug } from "@/lib/pages/Reports";
@@ -107,20 +107,20 @@ export default function Post({ post, preview }) {
         {/* Not working. Might be multi fields on an ST component? Opened an issue: https://github.com/datocms/nextjs-demo/issues/11 */}
         {/* <PostBody content={post.stContent} /> */}
 
-        {/* {post.content?.map((item) => (
-        <GridArticle
-        key={item.id}
-        aside={
-          item.footnote ? (
-            <Text textStyle="article">{item.footnote}</Text>
-            ) : null
-          }
+        {post.content?.map((item) => (
+          <GridArticle
+            key={item.id}
+            aside={
+              item.footnote ? (
+                <Text textStyle="article">{item.footnote}</Text>
+              ) : null
+            }
           >
-          <VStack align="flex-start" spacing={2} textStyle="article">
-          <ReactMarkdown key={item.id}>{item.text}</ReactMarkdown>
-          </VStack>
+            <VStack align="flex-start" spacing={2} textStyle="article">
+              <ReactMarkdown key={item.id}>{item.text}</ReactMarkdown>
+            </VStack>
           </GridArticle>
-        ))} */}
+        ))}
 
         <GridArticle>
           <Container layerStyle="spaceXlY">
