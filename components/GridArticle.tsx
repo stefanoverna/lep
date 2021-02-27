@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Grid, Box } from "@chakra-ui/react";
 
-const GridArticle = ({ isSection, children, aside, ...props }: Props) => (
+const GridArticle = ({ isArticle, children, aside, ...props }: Props) => (
   <Grid
-    as={isSection ? "section" : "article"}
+    as={isArticle ? "article" : "section"}
+    w="full"
     gap={10}
     templateColumns={{
       base: "repeat(1, minmax(0, 1fr))",
@@ -18,7 +19,7 @@ const GridArticle = ({ isSection, children, aside, ...props }: Props) => (
 
 interface Props {
   // maxW?: string | string[] | Record<string, unknown>;
-  isSection?: boolean;
+  isArticle?: boolean;
   children: React.ReactNode;
   aside?: React.ReactNode;
   // boxProps?: any;
