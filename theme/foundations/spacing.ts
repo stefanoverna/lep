@@ -36,6 +36,7 @@ export const spacing = {
   96: "24rem",
 
   // dynamic tests
+  // https://moderncss.dev/generating-font-size-css-rules-and-creating-a-fluid-type-scale/
   // https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()
   // can be used anywhere a <length>, <frequency>, <angle>, <time>, <percentage>, <number>, or <integer> is allowed.
   // min, preferred and max values
