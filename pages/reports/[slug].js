@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import { renderMetaTags } from "react-datocms";
-import { Container, Text } from "@chakra-ui/react";
+import { VStack, Container, Text } from "@chakra-ui/react";
 import LayoutBase from "@/components/LayoutBase";
 import GridArticle from "@/components/GridArticle";
 import { PostBody } from "@/components/PostBody";
@@ -74,49 +74,60 @@ export default function Post({ post, preview }) {
     <LayoutBase preview={preview}>
       <Head>{post && renderMetaTags(post.seo)}</Head>
 
-      <GridArticle>
-        <Text textStyle="textXl">Reports</Text>
-      </GridArticle>
+      <VStack align="flex-start" spacing="w1">
+        <GridArticle>
+          <Text textStyle="textXl">Reports</Text>
+        </GridArticle>
 
-      {/* TODO: loading  */}
-      {router.isFallback ? <Text>Loading…</Text> : <Text>Loaded</Text>}
+        {/* TODO: loading  */}
+        {router.isFallback ? (
+          <GridArticle>
+            {" "}
+            <Text>Loading…</Text>
+          </GridArticle>
+        ) : (
+          <GridArticle>
+            <Text>Loaded</Text>
+          </GridArticle>
+        )}
 
-      <GridArticle>
-        <Text textStyle="text5xl">{post.title}</Text>
-        <Text>This like the published date will also go here…</Text>
-        <Text>{post.heroLede}</Text>
-        {/* <PostHeader
+        <GridArticle>
+          <Text textStyle="text5xl">{post.title}</Text>
+          <Text>This like the published date will also go here…</Text>
+          <Text>{post.heroLede}</Text>
+          {/* <PostHeader
           title={post.title}
           coverImage={post.coverImage}
           date={post.date}
           author={post.author}
-        />
+          />
         <PostBody content={post.content} /> */}
-      </GridArticle>
+        </GridArticle>
 
-      {/* Not working. Might be multi fields on an ST component? Opened an issue: https://github.com/datocms/nextjs-demo/issues/11 */}
-      {/* <PostBody content={post.stContent} /> */}
+        {/* Not working. Might be multi fields on an ST component? Opened an issue: https://github.com/datocms/nextjs-demo/issues/11 */}
+        {/* <PostBody content={post.stContent} /> */}
 
-      {/* {post.content?.map((item) => (
+        {/* {post.content?.map((item) => (
         <GridArticle
-          key={item.id}
-          aside={
-            item.footnote ? (
-              <Text textStyle="article">{item.footnote}</Text>
+        key={item.id}
+        aside={
+          item.footnote ? (
+            <Text textStyle="article">{item.footnote}</Text>
             ) : null
           }
-        >
+          >
           <VStack align="flex-start" spacing={2} textStyle="article">
-            <ReactMarkdown key={item.id}>{item.text}</ReactMarkdown>
+          <ReactMarkdown key={item.id}>{item.text}</ReactMarkdown>
           </VStack>
-        </GridArticle>
-      ))} */}
+          </GridArticle>
+        ))} */}
 
-      <GridArticle>
-        <Container layerStyle="spaceXlY">
-          {/* {morePosts.length > 0 && <Text>there are more posts…</Text>} */}
-        </Container>
-      </GridArticle>
+        <GridArticle>
+          <Container layerStyle="spaceXlY">
+            {/* {morePosts.length > 0 && <Text>there are more posts…</Text>} */}
+          </Container>
+        </GridArticle>
+      </VStack>
     </LayoutBase>
   );
 }

@@ -18,6 +18,8 @@ const md = { base: 6, lg: 8, xl: 16 };
 const rg = { base: 4, lg: 6, xl: 12 };
 const sm = { base: 3, lg: 4, xl: 8 };
 
+const clamp = `clamp(0.8em, 2vw, 3em)`;
+
 /* GAPS */
 const gapXl = { base: 5, lg: 6, xl: 8 };
 const gapLg = { base: 4, lg: 5, xl: 5 };
@@ -28,6 +30,10 @@ const navH = { base: "64px", lg: "88px" };
 
 const layerStyles = {
   /* WHITESPACES: between sections */
+
+  test: {
+    spacing: clamp,
+  },
 
   spaceXlY: {
     py: xl,
