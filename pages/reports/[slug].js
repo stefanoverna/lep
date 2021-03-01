@@ -9,7 +9,7 @@ import { renderMetaTags } from "react-datocms";
 import { Container, Text } from "@chakra-ui/react";
 import LayoutBase from "@/components/LayoutBase";
 import GridArticle from "@/components/GridArticle";
-import { PostBody } from "@/components/PostBody";
+import PostBody from "@/components/PostBody";
 // import ReactMarkdown from "react-markdown";
 // import MediaImage from "@/components/MediaImage";
 // import { getAllReportsBySlug, getPostAndMorePosts } from "@/lib/api";
@@ -95,7 +95,7 @@ export default function Post({ post, preview }) {
       </GridArticle>
 
       {/* Not working. Might be multi fields on an ST component? Opened an issue: https://github.com/datocms/nextjs-demo/issues/11 */}
-      {/* <PostBody content={post.stContent} /> */}
+      <PostBody content={post.stContent} />
 
       {/* {post.content?.map((item) => (
         <GridArticle

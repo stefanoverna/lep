@@ -7,6 +7,9 @@ export default function PostBody({ content }) {
       <div className="prose prose-lg prose-blue">
         <StructuredText
           data={content}
+          renderInlineRecord={({ record }) => {
+            return <pre>{JSON.stringify(record)}</pre>;
+          }}
           renderBlock={({ record }) => {
             if (record.__typename === "ImageBlockRecord") {
               return <Image data={record.image.responsiveImage} />;
